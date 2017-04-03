@@ -1,10 +1,13 @@
-/*eslint strict: ["error", "global"]*/
 'use strict';
-
 var gulp = require('gulp');
-var $ = require('gulp-load-plugins')(); //jshint ignore:line
+var $ = require('gulp-load-plugins')();
+var uglifyjs = require("uglify-js");
+var fs = require('fs');
 var del = require('del');
+var crypto = require('crypto');
+var args = require('yargs').argv;
 var runSequence = require('run-sequence');
+JSON.minify = JSON.minify || require("node-json-minify");
 
 gulp.task('task1', function(callback) {
     runSequence('task2', 'task3', callback);
